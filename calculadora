@@ -1,0 +1,262 @@
+/*André Luca Lopes Lima */
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.io.*;
+public class CalculadoraII extends Frame{ 
+
+	private Label l1;
+	private Label l2;
+	private TextField tf1;
+	private Button b1um;
+	private Button b2dois;
+	private Button b3tres;
+	private Button b4quatro;
+	private Button b5cinco;
+	private Button b6seis;
+	private Button b7sete;
+	private Button b8oito;
+	private Button b9nove;
+	private Button b10zero;
+	private Button b11ponto;
+	private Button b12igual;
+	private Button b13limpar;
+	private Button b14soma;
+	private Button b15sub;
+	private Button b16mult;
+	private Button b17div;
+	private Panel p1;
+	private Panel p2;
+	private Panel p3;
+	int operacao;
+	double num1;
+	double num2;
+
+
+	public CalculadoraII (){
+	  l1=new Label ("Operacao: ");
+	  l2=new Label ("Tecle: ");
+
+	  tf1=new TextField ();
+
+	  b1um = new Button ("1");
+	  b2dois = new Button ("2");
+	  b3tres = new Button ("3");
+	  b4quatro = new Button ("4");
+	  b5cinco = new Button ("5");
+	  b6seis = new Button ("6");
+	  b7sete = new Button ("7");
+	  b8oito = new Button ("8");
+	  b9nove = new Button ("9");
+	  b10zero = new Button ("0");
+	  b11ponto = new Button (".");
+	  b12igual = new Button ("=");
+	  b13limpar = new Button ("C");
+	  b14soma = new Button ("+");
+	  b15sub = new Button ("-");
+	  b16mult = new Button ("*");
+	  b17div = new Button ("/");
+
+	  p1= new Panel ();
+	  p2= new Panel ();
+	  p3= new Panel ();
+
+	  p1.setLayout (new GridLayout(3,1));
+	  p1.add(l1);
+	  p1.add(tf1);
+	  p1.add(l2);
+
+	  p2.setLayout (new GridLayout(4,3));
+	  p2.add(b1um);
+	  p2.add(b2dois);
+	  p2.add(b3tres);
+	  p2.add(b4quatro);
+	  p2.add(b5cinco);
+	  p2.add(b6seis);
+	  p2.add(b7sete);
+	  p2.add(b8oito);
+	  p2.add(b9nove);
+	  p2.add(b10zero);
+	  p2.add(b11ponto);
+	  p2.add(b12igual);
+
+	  p3.setLayout (new GridLayout(5,1));
+	  p3.add(b13limpar);
+	  p3.add(b14soma);
+	  p3.add(b15sub);
+	  p3.add(b16mult);
+	  p3.add(b17div);
+
+	  setLayout(new BorderLayout());
+
+	  add(p1, BorderLayout.NORTH);
+	  add(p2, BorderLayout.WEST);
+	  add(p3, BorderLayout.EAST);
+
+	  b1um.addActionListener(new Acaob1um());
+	  b2dois.addActionListener(new Acaob2dois());
+	  b3tres.addActionListener(new Acaob3tres());
+	  b4quatro.addActionListener(new Acaob4quatro());
+	  b5cinco.addActionListener(new Acaob5cinco());
+	  b6seis.addActionListener(new Acaob6seis());
+	  b7sete.addActionListener(new Acaob7sete());
+	  b8oito.addActionListener(new Acaob8oito());
+	  b9nove.addActionListener(new Acaob9nove());
+	  b10zero.addActionListener(new Acaob10zero());
+	  b11ponto.addActionListener(new Acaob11ponto());
+	  b12igual.addActionListener(new Acaob12igual());
+	  b13limpar.addActionListener(new Acaob13limpar());
+	  b14soma.addActionListener(new Acaob14soma());
+	  b15sub.addActionListener(new Acaob15sub());
+	  b16mult.addActionListener(new Acaob16mult());
+	  b17div.addActionListener(new Acaob17div());
+          addWindowListener(new FechaTela());
+       }
+
+
+	class Acaob1um implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() + "1");
+	 }
+       }
+
+	class Acaob2dois implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() + "2");
+	 }
+       }
+
+	class Acaob3tres implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"3");
+	 }
+       }
+
+	class Acaob4quatro implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"4");
+	 }
+       }
+
+	class Acaob5cinco implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"5");
+	 }
+       }
+
+	class Acaob6seis implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"6");
+	 }
+       }
+
+	class Acaob7sete implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"7");
+	 }
+       }
+
+	class Acaob8oito implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"8");
+	 }
+       }
+
+	class Acaob9nove implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"9");
+	 }
+       }
+
+	class Acaob10zero implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +"0");
+	 }
+       }
+
+	class Acaob11ponto implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText(tf1.getText() +".");
+	 }
+       }
+
+	class Acaob12igual implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  num2= Double.parseDouble(tf1.getText());
+	  switch(operacao){
+		case 1: 
+			tf1.setText("" + (num1+num2));
+			break;
+		case 2: 
+			tf1.setText("" + (num1-num2));
+			break;
+
+		case 3: 
+			tf1.setText("" + (num1*num2));
+			break;
+
+		case 4: 
+			tf1.setText("" + (num1/num2));
+			break;
+		}
+	 }
+       }
+
+	class Acaob13limpar implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  tf1.setText("");
+	 }
+       }
+
+	class Acaob14soma implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  num1= Double.parseDouble(tf1.getText());
+	  tf1.setText("") ;
+	  operacao=1;
+
+	 }
+       }
+
+
+	class Acaob15sub implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  num1= Double.parseDouble(tf1.getText());
+	  tf1.setText("") ;
+	  operacao=2;
+
+	 }
+       }
+
+	class Acaob16mult implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  num1= Double.parseDouble(tf1.getText());
+	  tf1.setText("") ;
+	  operacao=3;
+
+	 }
+       }
+
+	class Acaob17div implements ActionListener{
+	  public void actionPerformed(ActionEvent evt){
+	  num1= Double.parseDouble(tf1.getText());
+	  tf1.setText("") ;
+	  operacao=4;
+
+	 }
+       }
+	
+	class FechaTela extends WindowAdapter{
+
+           public void windowClosing(WindowEvent e){
+           
+              System.exit(0);
+            }
+        }
+        
+	   public static void main(String [] arg){
+	   CalculadoraII c1 = new CalculadoraII ();
+	   c1.pack();
+	   c1.setVisible(true);
+}
+}
